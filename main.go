@@ -24,7 +24,8 @@ func pokeapiHandler(w http.ResponseWriter, r *http.Request) {
 	// Check if is reaching the API
 	// ignore any other request
 	if !strings.HasPrefix(r.URL.Path, "/api/") {
-		http.NotFound(w, r)
+		// http.NotFound(w, r)
+		http.Redirect(w, r, "https://github.com/thenets/pokeapi-cache", 301)
 		return
 	}
 
